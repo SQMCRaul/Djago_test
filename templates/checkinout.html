@@ -1,0 +1,37 @@
+<!doctype html>
+<html style="height: 100%">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body style="height: 100%">
+		<div style="text-align: center;margin-left: auto;margin-right: auto;background-color: lightgray;height:100%;overflow: hidden;border:solid 1px red">
+			<form action="/checkinout/" method="post" style="text-align: center;margin-top: 100px">
+                {% csrf_token %}
+				<select name="name" style="font-size:15px;background-color: silver;border-radius: 5px">
+					<option value=""  selected hidden>客官，您哪位？</option>
+					<option value="王玮">王玮</option>
+					<option value="谢静">谢静</option>
+				</select><br /><br />
+				<input style="background-color: silver;border-radius: 5px" name="time" id="" value="" type="datetime-local"/><br /><br />
+				<select name="local" id="local" style="background-color: silver;">
+					<option value=""  selected="selected" hidden="hidden">在哪</option>
+					<option value="行政楼西">行政楼西</option>
+					<option value="教学楼">教学楼</option>
+					<option value="图书馆">图书馆</option>
+                    <option value="行政楼南">行政楼南</option>
+                    <option value="行政楼北">行政楼北</option>
+                    <option value="餐厅">餐厅</option>
+                    <option value="基础楼">基础楼</option>
+					<option value="新乡校区">新乡校区</option>
+				</select><br /><br />
+				<input type="submit" value="提交"/>
+			</form>
+		</div>
+
+	</body>
+
+</html>

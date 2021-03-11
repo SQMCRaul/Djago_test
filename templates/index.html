@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>switch</title>
+</head>
+
+<table>
+    <tr><td></td></tr>
+</table>
+<form action="127.0.0.1:8088" method="get">
+    <input type="text" value="" name="name">
+    <input type="submit"  value="管理员">
+</form>
+<a href="http://127.0.0.1:8088">socket</a>
+<textarea name="" id="" cols="30" rows="20">{{ result }}</textarea>
+<script>
+    var data1="{{ data }}";
+    var data_json=json.parse(data1);
+    console.log(data_json)
+</script>
+</body>
+</html>

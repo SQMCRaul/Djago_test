@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+   <meta charset="utf-8">
+   <title>socket client</title>
+      <script type="text/javascript">
+         function WebSocket_conn()
+         {
+            if ("WebSocket" in window)
+            {
+               alert("您的浏览器支持 WebSocket!");
+               // 打开一个 web socket
+               ws = new WebSocket("ws://127.0.0.1:8000/socket/");
+            }
+            else
+            {
+               // 浏览器不支持 WebSocket
+               alert("您的浏览器不支持 WebSocket!");
+            }
+         }
+         function send() {
+             console.log('start');
+             message=document.getElementById("message").value;
+             console.log(message);
+             ws.send(message);
+
+
+                 ws.onmessage = function (event) {
+
+                     data = event.data;
+                     console.log(data);
+                     console.log(data.length);
+                     if (data){
+                     document.getElementById("result").innerHTML = data;
+                     }
+                 }
+
+         }
+      </script>
+   </head>
+   <body>
+
+      <div id="sse">
+         <a href="javascript:WebSocket_conn()">连接 WebSocket</a>
+          <input type="text" id="message">
+         <a href="javascript:send()">发送命令</a>
+         <div> <textarea name="" id="result" cols="70" rows="40" style="font: 16px bold"></textarea></div>
+      </div>
+
+   </body>
+</html>
