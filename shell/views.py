@@ -5,6 +5,7 @@ import time
 import random
 import pymssql
 import socket
+from django.contrib.admin.views.decorators import staff_member_required
 # Create your views here.
 cmd=''
 def index(request):
@@ -66,7 +67,9 @@ def socket_conn(request):
 def post(request):
     return render(request,'upload.html')
 def check(request):
+    print(request.user)
     return render(request,'checkinout.html')
+check=staff_member_required(check)#验证用户是否登录
 def checkinout(request):
     data=request.POST
     print(data)

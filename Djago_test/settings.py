@@ -1,3 +1,4 @@
+# coding:utf-8
 """
 Django settings for Djago_test project.
 
@@ -11,7 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
+import time
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -140,3 +141,86 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#simpleui配置
+# SIMPLEUI_INDEX = '/'
+# SIMPLEUI_HOME_INFO = False
+# SIMPLEUI_ANALYSIS = False
+# SIMPLEUI_DEFAULT_ICON = False
+
+
+SIMPLEUI_CONFIG={
+
+    'system_keep':True,
+    'menus':[
+
+        {'name': 'Simpleui',
+        'icon': 'fas fa-code',
+        'url': 'http://10.10.12.94/monitor.html',
+         'codename':'monitor'
+         },
+        {
+        # 自2021.02.01+ 支持多级菜单，models 为子菜单名
+        'name': '多级菜单测试',
+        'icon': 'fa fa-file',
+
+      	# 二级菜单
+        'models': [
+            {
+            'name':'可视化',
+            'url':'http://10.10.12.94/monitor.html' ,
+            'codename':'graph'
+
+             },
+            {
+            'name': 'Baidu',
+            'icon': 'far fa-surprise',
+            'url':'/admin/shell/campusfiled'
+            # 第三级菜单 ，
+
+        }, {
+            'name': '内网穿透',
+            'url': '/admin/shell/host/',
+            'icon': 'fab fa-github'
+        }
+        ]
+        }
+
+    ]
+}
+
+
+# SIMPLEUI_CONFIG = {
+#     'system_keep': True,
+#     'menu_display': ['Simpleui', '测试', '权限认证', '动态菜单测试'],      # 开启排序和过滤功能, 不填此字段为默认排序和全部显示, 空列表[] 为全部不显示.
+#     'dynamic': True,    # 设置是否开启动态菜单, 默认为False. 如果开启, 则会在每次用户登陆时动态展示菜单内容
+    # 'menus': [{
+    #     'name': 'Simpleui',
+    #     'icon': 'fas fa-code',
+    #     'url': 'https://gitee.com/tompeppa/simpleui'
+    # }, {
+    #     'app': 'auth',
+    #     'name': '权限认证',
+    #     'icon': 'fas fa-user-shield',
+    #     'models': [{
+    #         'name': '用户',
+    #         'icon': 'fa fa-user',
+    #         'url': 'auth/user/'
+    #     }]
+    # }, {
+    #     # 自2021.02.01+ 支持多级菜单，models 为子菜单名
+    #     'name': '多级菜单测试',
+    #     'icon': 'fa fa-file',
+    #   	# 二级菜单
+    #     'models': [{
+    #         'name': 'Baidu',
+    #         'icon': 'far fa-surprise',
+    #         # 第三级菜单 ，
+    #
+    #     }, {
+    #         'name': '内网穿透',
+    #         'url': 'https://www.wezoz.com',
+    #         'icon': 'fab fa-github'
+    #     }]
+    # }
+    # ]
+# }

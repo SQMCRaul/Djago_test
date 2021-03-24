@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from shell import views,socket_test,upload,json
 urlpatterns = [
+    path('admin/shell/monitor/', views.check),
     path('admin/', admin.site.urls),
     path('index/',views.linux),
     path('socket/', socket_test.socket_server),

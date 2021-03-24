@@ -5,6 +5,12 @@ from django.utils import timezone
 # Create your models here.
 from django import forms
 
+#只是创建一个菜单的链接
+class Monitor(models.Model):
+    class Meta:
+        managed=False
+        permissions=(("monitor.monitor","can view monitor"),)
+
 class UploadFileForm(forms.Form):
     title = forms.CharField(max_length=50)
     file = forms.FileField()
