@@ -47,11 +47,11 @@ INSTALLED_APPS = [
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
 MIDDLEWARE = [
-    # 'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -148,45 +148,45 @@ STATIC_URL = '/static/'
 # SIMPLEUI_DEFAULT_ICON = False
 
 
-SIMPLEUI_CONFIG={
-
-    'system_keep':True,
-    'menus':[
-
-        {'name': 'Simpleui',
-        'icon': 'fas fa-code',
-        'url': 'http://10.10.12.94/monitor.html',
-         'codename':'monitor'
-         },
-        {
-        # 自2021.02.01+ 支持多级菜单，models 为子菜单名
-        'name': '多级菜单测试',
-        'icon': 'fa fa-file',
-
-      	# 二级菜单
-        'models': [
-            {
-            'name':'可视化',
-            'url':'http://10.10.12.94/monitor.html' ,
-            'codename':'graph'
-
-             },
-            {
-            'name': 'Baidu',
-            'icon': 'far fa-surprise',
-            'url':'/admin/shell/campusfiled'
-            # 第三级菜单 ，
-
-        }, {
-            'name': '内网穿透',
-            'url': '/admin/shell/host/',
-            'icon': 'fab fa-github'
-        }
-        ]
-        }
-
-    ]
-}
+# SIMPLEUI_CONFIG={
+#
+#     'system_keep':True,
+#     'menus':[
+#
+#         {'name': 'Simpleui',
+#         'icon': 'fas fa-code',
+#         'url': 'http://10.10.12.94/monitor.html',
+#          'codename':'monitor'
+#          },
+#         {
+#         # 自2021.02.01+ 支持多级菜单，models 为子菜单名
+#         'name': '多级菜单测试',
+#         'icon': 'fa fa-file',
+#
+#       	# 二级菜单
+#         'models': [
+#             {
+#             'name':'可视化',
+#             'url':'http://10.10.12.94/monitor.html' ,
+#             'codename':'graph'
+#
+#              },
+#             {
+#             'name': 'Baidu',
+#             'icon': 'far fa-surprise',
+#             'url':'/admin/shell/campusfiled'
+#             # 第三级菜单 ，
+#
+#         }, {
+#             'name': '内网穿透',
+#             'url': '/admin/shell/host/',
+#             'icon': 'fab fa-github'
+#         }
+#         ]
+#         }
+#
+#     ]
+# }
 
 
 # SIMPLEUI_CONFIG = {

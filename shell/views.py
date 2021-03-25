@@ -67,7 +67,7 @@ def socket_conn(request):
 def post(request):
     return render(request,'upload.html')
 def check(request):
-    print(request.user)
+    
     return render(request,'checkinout.html')
 check=staff_member_required(check)#验证用户是否登录
 def checkinout(request):

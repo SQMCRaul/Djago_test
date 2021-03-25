@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from shell import views,socket_test,upload,json
+from shell.utils import get_host
 urlpatterns = [
     path('admin/shell/monitor/', views.check),
     path('admin/', admin.site.urls),
@@ -28,4 +29,5 @@ urlpatterns = [
     path('check/',views.check),
     path('checkinout/',views.checkinout),
     path('json/',json.rejson),
+    path('get_host/', get_host.get_host)
 ]

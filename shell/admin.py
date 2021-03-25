@@ -1,28 +1,37 @@
 # coding:utf-8
 from django.contrib import admin
+from shell import models
+from shell.utils import zabbix
+from shell.utils import get_host
 
 # Register your models here.
-from shell import models
-import random
-from shell.utils import zabbix
-token=zabbix.get_token('Admin','zabbix')
+
+token=zabbix.get_token()
 
 
 class DepartmentAdmin(admin.ModelAdmin):
-    list_display = ('name','manager','cpu')
+    list_display = ('name','manager')
 
 
-    def cpu(self,obj):
-        print(obj.name)
-        print(token)
-        itemid=zabbix.get_speed(token)
-        return itemid
-    cpu.short_description = 'CPU使用率'
-    cpu.allow_tags=True #解析html格式
-    cpu.admin_order_field='cpu'
+
+    # memory.short_description = 'CPU使用率'
+    # cpu.allow_tags=True #解析html格式
+    # cpu.admin_order_field='cpu'
 class HostAdmin(admin.ModelAdmin):
-    list_display = ('host_name','ip','system')
+    list_display = ('host_name','ip','system','campus_filed','app','department')
 
+    def CPU(self,request):
+        return token
+
+    def memory(self,request):
+        return token
+
+    CPU.short_description = 'CPU使用率'
+    memory.short_description='内存使用率'
+    search_fields = ('host_name','system')  #搜索字段
+    # list_filter = ('campus_filed',) #过滤字段
+    list_per_page = 10
+    list_editable = ('ip','campus_filed')
 
 admin.site.register(models.Department,DepartmentAdmin)
 admin.site.register(models.Host,HostAdmin)
